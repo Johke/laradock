@@ -366,6 +366,15 @@ RUN if [ ${INSTALL_IMAGEMAGICK} = true ]; then \
 #--------------------------------------------------------------------------
 #
 
+USER root
+RUN apt-get update && apt-get install -y \
+    locales \
+    --no-install-recommends \
+    && rm -r /var/lib/apt/lists/* \
+    && printf 'en_GB.UTF-8 UTF-8\n' >> /etc/locale.gen \
+    && printf 'sv_SE.UTF-8 UTF-8\n' >> /etc/locale.gen \
+    && locale-gen
+
 ADD ./laravel.ini /usr/local/etc/php/conf.d
 ADD ./xlaravel.pool.conf /usr/local/etc/php-fpm.d/
 

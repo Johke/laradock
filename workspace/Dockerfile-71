@@ -714,7 +714,7 @@ RUN if [ ${INSTALL_DUSK_DEPS} = true ]; then \
 USER root
 
 RUN apt update && \
-    apt install -y mysql-client
+    apt install -y unzip mysql-client
 
 
 
