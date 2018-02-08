@@ -360,6 +360,16 @@ RUN if [ ${INSTALL_IMAGEMAGICK} = true ]; then \
     docker-php-ext-enable imagick \
 ;fi
 
+#--------------------------------------------------------------------------
+# Mysql client
+#--------------------------------------------------------------------------
+#
+
+USER root
+
+RUN apt update && apt install -y mysql-client
+
+
 #
 #--------------------------------------------------------------------------
 # Final Touch
